@@ -16,3 +16,8 @@
   * `mcrypt`
   * `socket`
   * `zip`
+
+## docker env 추가
+
+- WORDPRESS_REDIS_HOST (default: redis)
+- WORDPRESS_REDIS_PORT (default: 6379)
