@@ -46,3 +46,7 @@ services:
         define('WP_REDIS_HOST', getenv_docker('WORDPRESS_REDIS_HOST', 'redis'));
         define('WP_REDIS_PORT', getenv_docker('WORDPRESS_REDIS_PORT', 6379));
 ```
+
+## wordpress test result
+
+<img width="952" alt="스크린샷 2021-09-12 오후 4 08 12" src="https://user-images.githubusercontent.com/42893446/132977263-d8496a03-3aaa-4dcb-a3b4-52d880cb3a3f.png">
