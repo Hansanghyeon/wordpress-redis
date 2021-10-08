@@ -52,7 +52,10 @@ services:
 
 ## wordpress test result
 
-<img width="952" alt="스크린샷 2021-09-12 오후 4 08 12" src="https://user-images.githubusercontent.com/42893446/132977263-d8496a03-3aaa-4dcb-a3b4-52d880cb3a3f.png">
+<img width="952" alt="스크린샷 2021-10-08 오후 1 30 10" src="https://user-images.githubusercontent.com/42893446/136500291-e450d26d-9183-4cfb-9fb5-7fafa51bc0fa.png">
+<img width="952" alt="스크린샷 2021-10-08 오후 1 30 06" src="https://user-images.githubusercontent.com/42893446/136500303-aa14c506-e6d8-4905-8db3-1dd92e2ce1cf.png">
+
+
 
 ## 왜 nginx를 사용하지 않았나?
 
