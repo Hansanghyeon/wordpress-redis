@@ -3,6 +3,16 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다.
 
+## [v0.1.0] 2021-10-08
+
+### Added
+
+- php extentions php5-redis
+### Chagned
+
+- wordpress-fpm 사용을 wordpress-apache로 변경
+  - 따로 스트림할 nginx가 필요x
+
 ## [v0.0.2] 2021-09-10
 
 ### Changed

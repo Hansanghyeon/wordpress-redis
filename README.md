@@ -1,22 +1,25 @@
 ## What is this?
 
-이것은 추가 및 기타 확장이 포함된 PHP 8.0 FPM 기본이미 오피셜 워드프레스입니다.
-
-웹 서버가 없고 대신 포트 9000에서 수신하는 PHP-FPM이 있습니다. 작동하려면 nginx와 같은 웹 서버가 이 포트로 요청을 업스트림으로 보내야 합니다.
+이것은 추가 및 기타 확장이 포함된 `wordpress:php8.0-apache` 기본이미 오피셜 워드프레스입니다.
 
 ## What's included:
 
 * PHP extensions (additional to default PHP installation):
   * `redis`
-  * `imagick`
-  * `libsodium`
-  * `exif`
-  * `gettext`
-  * `intl`
-  * `mcrypt`
-  * `socket`
-  * `zip`
+  * `php5-redis`
 
+## TL;DR
+
+```yaml
+services:
+ wordpress_fpm:
+    image: ghcr.io/hansanghyeon/wordpress-redis:latest
+    environment:
+      WORDPRESS_CONFIG_EXTRA: |
+        /* Redis */
+        define('WP_REDIS_HOST', getenv_docker('WORDPRESS_REDIS_HOST', 'redis'));
+        define('WP_REDIS_PORT', getenv_docker('WORDPRESS_REDIS_PORT', 6379));
+```
 ## docker env 추가
 
 해당 env를 추가하는 방법을 많이 고민해봤다. 여러가지 예시도 찾아보고 [5.8.0-php8.0-fpm-alpine](https://github.com/docker-library/wordpress/tree/e98fe75c5a41e2d3f3c4d89f3e6b15e62638147c/latest/php8.0/fpm-alpine) 해당 `Dockerfile`을 토대로 커스텀하게 만들려고 시도도 해봤지만 어째선지
@@ -39,7 +42,7 @@ https://github.com/docker-library/wordpress/issues/147, https://github.com/docke
 ```yaml
 services:
  wordpress_fpm:
-    image: docker pull ghcr.io/hansanghyeon/docker-wordpress-redis:latest
+    image: ghcr.io/hansanghyeon/wordpress-redis:latest
     environment:
       WORDPRESS_CONFIG_EXTRA: |
         /* Redis */
@@ -50,3 +53,7 @@ services:
 ## wordpress test result
 
 <img width="952" alt="스크린샷 2021-09-12 오후 4 08 12" src="https://user-images.githubusercontent.com/42893446/132977263-d8496a03-3aaa-4dcb-a3b4-52d880cb3a3f.png">
+
+## 왜 nginx를 사용하지 않았나?
+
+필자는 traefik을 이용하여 서비스를 배포한다. 그런데 중간에 traefik > nginx > wordpress-fpm으로 할때 nginx에서 설정해야할 설정값들을 설정하기에 매번 그래야한다는 생각으로 좀더 간편한 방법 최소한의 개발을 방향으로 잡았기에 해당 커스텀 이미지만을 사용해서 완료할 수 있도록 하려고 traefik > wordpress-apache로 만들었다.
