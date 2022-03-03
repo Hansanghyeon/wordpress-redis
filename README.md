@@ -60,3 +60,7 @@ services:
 ## 왜 nginx를 사용하지 않았나?
 
 필자는 traefik을 이용하여 서비스를 배포한다. 그런데 중간에 traefik > nginx > wordpress-fpm으로 할때 nginx에서 설정해야할 설정값들을 설정하기에 매번 그래야한다는 생각으로 좀더 간편한 방법 최소한의 개발을 방향으로 잡았기에 해당 커스텀 이미지만을 사용해서 완료할 수 있도록 하려고 traefik > wordpress-apache로 만들었다.
+
+## Feature
+
+- [ ] 현재는 `gh release create {version}`으로 release를 생성하고있다. 이 부분이 매끄러운 DX를 전달하지 못한다. 어떻게 개선해야할지 생각해보기
